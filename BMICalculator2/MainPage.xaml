@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="BMICalculator2.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="BMI Calculator"
+    BackgroundColor="#F3F3F8">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="24">
+
+            <!-- Title -->
+            <Label Text="BMI Calculator"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center"
+                   TextColor="#222222" />
+
+            <!-- Gender cards -->
+            <HorizontalStackLayout Spacing="16"
+                                   HorizontalOptions="Fill"
+                                   HeightRequest="150">
+
+                <!-- Male card -->
+                <Frame x:Name="MaleCard"
+                       HasShadow="True"
+                       CornerRadius="16"
+                       Padding="10"
+                       BackgroundColor="White"
+                       BorderColor="Transparent"
+                       HorizontalOptions="FillAndExpand">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnMaleTapped" />
+                    </Frame.GestureRecognizers>
+
+                    <VerticalStackLayout Spacing="8"
+                                         HorizontalOptions="Center"
+                                         VerticalOptions="Center">
+                        <Image Source="male.png"
+                               WidthRequest="70"
+                               HeightRequest="70" />
+                        <Label Text="Male"
+                               FontSize="16"
+                               HorizontalOptions="Center"
+                               TextColor="#222222" />
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Female card -->
+                <Frame x:Name="FemaleCard"
+                       HasShadow="True"
+                       CornerRadius="16"
+                       Padding="10"
+                       BackgroundColor="White"
+                       BorderColor="Transparent"
+                       HorizontalOptions="FillAndExpand">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnFemaleTapped" />
+                    </Frame.GestureRecognizers>
+
+                    <VerticalStackLayout Spacing="8"
+                                         HorizontalOptions="Center"
+                                         VerticalOptions="Center">
+                        <Image Source="female.png"
+                               WidthRequest="70"
+                               HeightRequest="70" />
+                        <Label Text="Female"
+                               FontSize="16"
+                               HorizontalOptions="Center"
+                               TextColor="#222222" />
+                    </VerticalStackLayout>
+                </Frame>
+
+            </HorizontalStackLayout>
+
+            <!-- Height card -->
+            <Frame HasShadow="True"
+                   CornerRadius="16"
+                   Padding="16"
+                   BackgroundColor="White">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Height (inches)"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           TextColor="#222222" />
+                    <Slider x:Name="HeightSlider"
+                            Minimum="0"
+                            Maximum="100"
+                            Value="50"
+                            ValueChanged="OnHeightChanged"
+                            ThumbColor="#FF3366"
+                            MaximumTrackColor="#FFE0EA"
+                            MinimumTrackColor="#FF3366" />
+                    <Label x:Name="HeightValueLabel"
+                           Text="50"
+                           FontSize="16"
+                           HorizontalOptions="End"
+                           TextColor="#555555" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Weight card -->
+            <Frame HasShadow="True"
+                   CornerRadius="16"
+                   Padding="16"
+                   BackgroundColor="White">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Weight (lbs)"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           TextColor="#222222" />
+                    <Slider x:Name="WeightSlider"
+                            Minimum="0"
+                            Maximum="300"
+                            Value="90"
+                            ValueChanged="OnWeightChanged"
+                            ThumbColor="#FF3366"
+                            MaximumTrackColor="#FFE0EA"
+                            MinimumTrackColor="#FF3366" />
+                    <Label x:Name="WeightValueLabel"
+                           Text="90"
+                           FontSize="16"
+                           HorizontalOptions="End"
+                           TextColor="#555555" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Calculate button -->
+            <Button Text="Calculate your BMI"
+                    Clicked="OnCalculateClicked"
+                    FontSize="18"
+                    TextColor="White"
+                    BackgroundColor="#101645"
+                    CornerRadius="12"
+                    HeightRequest="50"
+                    HorizontalOptions="Fill" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
