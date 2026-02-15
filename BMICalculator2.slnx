@@ -1,3 +1,6 @@
 <Solution>
-  <Project Path="BMICalculator2/BMICalculator2.csproj" />
+  <Folder Name="/Solution Items/" />
+  <Project Path="BMICalculator2/BMICalculator2.csproj">
+    <Deploy Solution="Debug|*" />
+  </Project>
 </Solution>

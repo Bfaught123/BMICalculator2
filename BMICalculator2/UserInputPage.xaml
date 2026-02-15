@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="BMICalculator2.UserInputPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="User Input"
+    BackgroundColor="#1E1E2E">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="24">
+
+            <!-- Title -->
+            <Label Text="BMI Calculator"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="White" />
+
+            <!-- Gender -->
+            <HorizontalStackLayout Spacing="16" HeightRequest="150">
+
+                <Frame x:Name="MaleCard"
+                       CornerRadius="16"
+                       Padding="10"
+                       BackgroundColor="#2A2A3D"
+                       BorderColor="Transparent"
+                       HorizontalOptions="FillAndExpand">
+
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnMaleTapped"/>
+                    </Frame.GestureRecognizers>
+
+                    <VerticalStackLayout HorizontalOptions="Center" Spacing="10">
+                        <Image Source="male.png" WidthRequest="70"/>
+                        <Label Text="Male"
+                               TextColor="White"
+                               HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame x:Name="FemaleCard"
+                       CornerRadius="16"
+                       Padding="10"
+                       BackgroundColor="#2A2A3D"
+                       BorderColor="Transparent"
+                       HorizontalOptions="FillAndExpand">
+
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnFemaleTapped"/>
+                    </Frame.GestureRecognizers>
+
+                    <VerticalStackLayout HorizontalOptions="Center" Spacing="10">
+                        <Image Source="female.png" WidthRequest="70"/>
+                        <Label Text="Female"
+                               TextColor="White"
+                               HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+            </HorizontalStackLayout>
+
+            <!-- Height -->
+            <Label Text="Height (inches)"
+                   FontAttributes="Bold"
+                   TextColor="White"/>
+
+            <Slider x:Name="HeightSlider"
+                    Minimum="36"
+                    Maximum="100"
+                    Value="66"
+                    ValueChanged="OnHeightChanged"
+                    ThumbColor="#4DA6FF"
+                    MinimumTrackColor="#4DA6FF"
+                    MaximumTrackColor="#555577"/>
+
+            <Label x:Name="HeightValueLabel"
+                   FontSize="18"
+                   FontAttributes="Bold"
+                   TextColor="#4DA6FF"
+                   HorizontalOptions="End"/>
+
+            <!-- Weight -->
+            <Label Text="Weight (lbs)"
+                   FontAttributes="Bold"
+                   TextColor="White"/>
+
+            <Slider x:Name="WeightSlider"
+                    Minimum="80"
+                    Maximum="300"
+                    Value="180"
+                    ValueChanged="OnWeightChanged"
+                    ThumbColor="#4DA6FF"
+                    MinimumTrackColor="#4DA6FF"
+                    MaximumTrackColor="#555577"/>
+
+            <Label x:Name="WeightValueLabel"
+                   FontSize="18"
+                   FontAttributes="Bold"
+                   TextColor="#4DA6FF"
+                   HorizontalOptions="End"/>
+
+            <!-- Button -->
+            <Button Text="Go To Results"
+                    Clicked="OnGoToResultsClicked"
+                    BackgroundColor="#4DA6FF"
+                    TextColor="White"
+                    CornerRadius="12"
+                    HeightRequest="50"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
